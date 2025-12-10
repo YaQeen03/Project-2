@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIN - Modern Furniture Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            align-items: left;
+         display:block;
+         direction: rtl;
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+       
+        .s1 {
+            background: linear-gradient(135deg, #2c7873 0%, #1a5550 100%);
+            color:white;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .h1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .h1 .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color:#ffed4e ;
+        }
+
+        .h1 nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .h1 nav a {
+            color: white;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .h1 nav a:hover {
+            color: #ffd700;
+        }
+
+        .h1 nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        .h1 nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 40px 20px;
+        }
+
+        .hero-content p {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: left;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background:   #ffed4e;
+            color:black;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-second {
+            background: transparent;
+            color:black;
+            border: 2px solid white;
+        }
+
+        .btn-second:hover {
+            background: #2c7873;
+            color:white;
+            transform: translateY(-2px);
+        }
+         .btn-third {
+            background: #2c7873;
+            color:white;
+            border: 2px solid white;
+        }
+
+        .img_1 {
+            max-width: 700px;
+            margin: 0 auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            text-align: left;
+            
+        }
+
+       
+        .s2 {
+             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 20px;
+        }
+
+        .s2 .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            align-items: start;
+        }
+
+        .s2_2 {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .s2_2:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .s2_2:first-child {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .s2_2 h2 {
+            font-size: 32px;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        .s2_2 p {
+            color: black;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .s2_2 img {
+            margin: 0 auto 20px;
+            max-width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .s2_2:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #2c7873;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .s3 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: left;
+            justify-content: space-between;
+        }
+
+        .s3 h2 {
+            font-size: 36px;
+            color:black;
+            margin-bottom: 20px;
+        }
+
+        .s3 p {
+            max-width: 700px;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .box
+        {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 20px;
+            justify-content: space-between;
+      
+        }
+        .img-3
+        {
+            width: 450px;
+            border-radius: 10px;
+
+        }
+         .features {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .features-title {
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 15px;
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+
+
+       
+        .s4 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 20px;
+        }
+
+        .s4 .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .s4-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .s4-images img {
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .s4-images img:hover {
+            transform: scale(1.05);
+        }
+
+        .s4-images img:first-child {
+            grid-row: 1 / 3;
+        }
+
+        .s4-content h2 {
+            font-size: 36px;
+            color:black;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .s4-content p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .s4-content ul {
+            list-style: circle;
+            margin-bottom: 30px;
+        }
+
+        .s4-content ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .s4-content ul li::before {
+           
+            position: absolute;
+            left: 0;
+            color: #555;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+       
+        .s5 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 20px;
+        }
+
+        .s5 .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .s5-card {
+           background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .s5-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .s5-card img {
+            width: 100%;
+           
+            object-fit: cover;
+        }
+
+        .s5-card-content {
+            padding: 25px;
+        }
+
+        .s5-card-content h3 {
+            color: black;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .s5-card-content p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #ffd700;
+        }
+
+        
+        .s6 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: rgb(47, 46, 46);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .s6 h3 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-text {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-author p {
+            margin: 5px 0;
+        }
+
+        .author-name {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .author-title {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+
+        
+        .s7 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 20px;
+        }
+
+        .s7-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .s7-header h2 {
+            font-size: 36px;
+            color:black;
+        }
+
+        .s7-header a {
+            color: #2c7873;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .s7-header a:hover {
+            color: #ffd700;
+        }
+
+        .s7 .container > div:last-child {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+       
+
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-title {
+            font-weight: bold;
+            font-size: 20px;
+            color:black;
+            margin-bottom: 10px;
+        }
+
+        .blog-meta {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .s8 {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 20px;
+        }
+
+        .s8 .container {
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .s8 h2 {
+            font-size: 36px;
+            color: black;
+            margin-bottom: 30px;
+            grid-column: 1 / -1;
+            text-align:left;
+        }
+
+        .s8 input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .s8 input:focus {
+            outline: none;
+            border-color: #2c7873;
+        }
+
+        .s8 img {
+            grid-column: 1 / -1;
+            max-width: 400px;
+            margin: 20px auto 0;
+        }
+
+        .footer {
+            background:white;
+            color:black;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 8px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li:hover {
+            color: #ffd700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom p {
+            opacity: 0.8;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .h1 {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .h1 nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero-content p {
+                font-size: 28px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .s4 .container {
+                grid-template-columns: 1fr;
+            }
+
+            .s7-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+
+            .s8 .container {
+                grid-template-columns: 1fr;
+            }
+            
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+          .f2
+          {
+            display: flex;
+            gap: 5px;
+          }
+         }
+    </style>
+</head>
+<body>
+    <!-- SECTION 1 - HERO -->
+    <section class="s1">
+        <header class="h1">
+            <div class="logo">FIN</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <div class="hero-content">
+            <p>"Transform your space with elegance."</p>
+            <img class="img_1" src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\8228a33a12a1e22ec18d766745eab139594f0215.png" alt="Modern Furniture">
+             <div class="hero-buttons">
+                <button class="btn btn-primary">Shop Now</button>
+                <button class="btn btn-second">Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 - PRODUCTS SHOWCASE -->
+    <section class="s2" id="products">
+        <div class="container">
+            <div >
+                <h2>Crafted with excellent material.</h2>
+                <p>Donec mattis porta eros, aliquet finibus risus interdum at. Nulla vivethe as it was for us to know what was to be done.</p>
+                 <button class="btn btn-third">Explore</button>
+            </div>
+            <div class="s2_2">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\15004e27e48848a24e4caf206d075a7f82093091.png" alt="Modern Chair">
+                <p>Modern Chair</p>
+                <p class="product-price">$60.00</p>
+            </div>
+            <div class="s2_2">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\5195e6b8b861c8d84d8f55db44fef19e6d989ae7.png" alt="Kruzo Aero Chair">
+                <p>Kruzo Aero Chair</p>
+                <p class="product-price">$78.00</p>
+            </div>
+            <div class="s2_2">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\cd28f521d24016a14c41f48954fc5d0f993cd41f.png" alt="Ergonomic Chair">
+                <p>Ergonomic Chair</p>
+                <p class="product-price">$88.00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 - WHY CHOOSE US -->
+    <section class="s3" id="about">
+        <div class="container">
+            <h2>Why Choose Us </h2>
+         <p>Donec mattis porta eros, aliquet finibus risus interdum at. Nulla<br> vivethe as it was for us to know what was to be done.</p>
+       
+         <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3 class="feature-title">Fast  & Free Shipping </h3>
+                    <p style="font-size: 10px;">Donec mattis porta eros, aliquet finibus risus interdum at. Nulla vivethe as it was</p>
+                </div>
+                 <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3 class="feature-title">Easy to Shop</h3>
+                    <p style="font-size: 10px;">Donec mattis porta eros, aliquet finibus risus interdum at. Nulla vivethe as it was</p>
+                 </div>
+            </div>
+
+                 <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3 class="feature-title">24/7 Support</h3>
+                    <p style="font-size: 10px;">Donec mattis porta eros, aliquet finibus risus interdum at. Nulla vivethe as it was</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Hassle Free Returns</h3>
+                    <p style="font-size: 10px;">Donec mattis porta eros, aliquet finibus risus interdum at. Nulla vivethe as it was</p>
+                </div>
+                <div class="img-3">
+                     <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\ed31f11d9e87fc694aa42bad4e2d378fe301f3ef.jpg" >
+                </div>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- SECTION 4 - INTERIOR DESIGN -->
+    <section class="s4">
+        <div class="container">
+            <div class="s4-images">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\7b6e2e9f0eacec890ce8ccf9495e791cc6a00a4f.jpg" alt="Interior 1">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\9be623896f45b278c8ee164c90a7a80802a38e3d (1).jpg" alt="Interior 2">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\eac1ade7c7b41394dadb48b2ab5fea1702ee2284.jpg" alt="Interior 3">
+            </div>
+            <div class="s4-content">
+                <h2>We help you make Modern Interior Design</h2>
+                <p>Donec mattis porta eros, aliquet finibus risus interdum at. Nulla vivethe as it was for us to know what was to be done. This is a long post for the text. This small text has to be placed here, since this is a placeholder. You can also change it.</p>
+                <ul class="container">
+                    <div class="features-grid">
+                    <li>Donec mattis porta eros, let aliquet finibus ri</li>
+                    <li>Donec mattis porta eros, let aliquet finibus ri</li>
+                    </div>
+                    <div class="features-grid">
+                    <li>Donec mattis porta eros, let aliquet finibus ri</li>
+                    <li>Donec mattis porta eros, let aliquet finibus ri</li>
+                    </div>
+                </ul>
+                <button class="btn btn-third">Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 - PRODUCT DETAILS -->
+    <section class="s5">
+        <div class="container">
+            <div class="s5-card">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\15004e27e48848a24e4caf206d075a7f82093091.png" alt="Modern Chair">
+                <div class="s5-card-content">
+                    <h3>Modern Chair</h3>
+                    <p>Donec mattis porta eros, aliquet finibus risus in. Donecd</p>
+                    <span class="read-more">Read more →</span>
+                </div>
+            </div>
+            <div class="s5-card">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\5195e6b8b861c8d84d8f55db44fef19e6d989ae7.png" alt="Kruzo Aero Chair">
+                <div class="s5-card-content">
+                    <h3>Kruzo Aero Chair</h3>
+                    <p>Donec mattis porta eros, aliquet finibus risus in. Donecd</p>
+                    <span class="read-more">Read more →</span>
+                </div>
+            </div>
+            <div class="s5-card">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\cd28f521d24016a14c41f48954fc5d0f993cd41f.png" alt="Ergonomic Chair">
+                <div class="s5-card-content">
+                    <h3>Ergonomic Chair</h3>
+                    <p>Donec mattis porta eros, aliquet finibus risus in. Donecd</p>
+                    <span class="read-more">Read more →</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 - TESTIMONIALS -->
+    <section class="s6">
+        <div class="container">
+            <h3>Testimonials</h3>
+            <p class="testimonial-text">"Donec nibh magna, interdum quis massa sed, rhoncus laoreet quam. Mauris accumsan felis fermentum euismod egestas. Mauris ante augue, cursus sit amet arcu a, maximus suscipit nibh. Integer vel nibh tellus. Pellentesque in risus non dui venenatis sollicitudin sed vitae diam. Fusce tincidunt nisl mi, at molestie odio accumsan non. Pellentesque ma"</p>
+            <div class="testimonial-author">
+                <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\5117c449e6d607e85b612945d4010643f7ed1467.jpg" alt="Zain Bin Noor">
+                <p class="author-name">Zain Bin Noor</p>
+                <p class="author-title">CEO, Co-Founder, XYZ Inc.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 - BLOG -->
+    <section class="s7">
+        <div class="container">
+            <div class="s7-header">
+                <h2>Recently Blog</h2>
+                <a href="#">View All Posts →</a>
+            </div>
+            <div>
+                <div class="blog-card">
+                    <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\d490d3cd5eca3fd74dc493c2fa1e4d75c88e879a.jpg" alt="Blog Post">
+                    <div class="blog-card-content">
+                        <p class="blog-title">Time Home Owner Ideas</p>
+                        <p class="blog-meta">by Nana Ama on Nov 18th, 2022</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\abc0c1bc37461ee6a881abf60f0a3b72d7316d2b.jpg" alt="Blog Post">
+                    <div class="blog-card-content">
+                        <p class="blog-title">Time Home Owner Ideas</p>
+                        <p class="blog-meta">by Nana Ama on Nov 18th, 2022</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\89ce77f013e8c5602ff5ca2ae3691cc7fe3bbd6c.jpg" alt="Blog Post">
+                    <div class="blog-card-content">
+                        <p class="blog-title">Time Home Owner Ideas</p>
+                        <p class="blog-meta">by Nana Ama on Nov 18th, 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 - NEWSLETTER -->
+    <section class="s8" id="contact">
+        <div class="container">
+            <h2>Subscribe to Newsletter</h2>
+            <input type="text" placeholder="Enter your name">
+            <input type="email" placeholder="Enter your email">
+            <img src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\bccc12f72c6587d5165d3d7cf2edcfa5d9722c67.png" alt="Newsletter">
+        </div>
+    </section>
+
+    <!-- SECTION 9 - FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 style="color: #2c7873;">FIN</h3>
+                    <p>Donec mattis porta eros, aliquet finibus risus interdum at. Nulla vivethe as it was for us to know what was to be done. This is a long post for the text.</p>
+                </div>
+                <div class="footer-section">
+                   
+                   <ul>
+                       
+                        <li>About us</li>
+                        <li>Services</li>
+                        <li>Blog</li>
+                        <li>Contact us</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                   
+                    <ul>
+                         <li>Support</li>
+                        <li>Knowledge base</li>
+                        <li>Live chat</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    
+                    <ul>
+                        <li>Jobs</li>
+                        <li>Our team</li>
+                        <li>Leadership</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    
+                    <ul>
+                        <li>Products</li>
+                        <li>Nordic Chair</li>
+                        <li>Kruzo Aero</li>
+                        <li>Ergonomic</li>
+                    </ul><br>
+                </div>
+             
+            </div>
+         <div  style=" display: flex;
+            gap: 5px;">
+                         <img style="width: 20px;" src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\facebook.png">
+                         <img style="width: 20px;" src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\instagram.png" >
+                         <img style="width: 20px;" src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\twitter.png">
+                         <img style="width: 20px;"src="C:\Users\user\OneDrive\Desktop\Project-2\Project-2\photos\whatsapp.png">
+          </div><br><br>
+            <div >
+                <p style="text-align: right;">Terms & Conditions  •  Privacy Policy</p><br>
+                <p>Copyright 2022 zainali00769@gmail.com. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+  
+</body>
+</html>
